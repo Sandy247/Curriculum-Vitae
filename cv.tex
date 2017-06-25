@@ -1,0 +1,137 @@
+\documentclass[a4paper,10pt]{article}
+
+%A Few Useful Packages
+\usepackage{marvosym}
+\usepackage{fontspec} 					%for loading fonts
+\usepackage{xunicode,xltxtra,url,parskip} 	%other packages for formatting
+\RequirePackage{color,graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[big]{layaureo} 				%better formatting of the A4 page
+% an alternative to Layaureo can be ** \usepackage{fullpage} **
+\usepackage{supertabular} 				%for Grades
+\usepackage{titlesec}					%custom \section
+
+%Setup hyperref package, and colours for links
+\usepackage{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}
+
+%FONTS
+\defaultfontfeatures{Mapping=tex-text}
+%\setmainfont[SmallCapsFont = Fontin SmallCaps]{Fontin}
+%%% modified for Karol Kozioł for ShareLaTeX use
+\setmainfont[
+SmallCapsFont = Fontin-SmallCaps.otf,
+BoldFont = Fontin-Bold.otf,
+ItalicFont = Fontin-Italic.otf
+]
+{Fontin.otf}
+%%%
+
+%CV Sections inspired by: 
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{3pt}{3pt}
+%Tweak a bit the top margin
+%\addtolength{\voffset}{-1.3cm}
+
+%Italian hyphenation for the word: ''corporations''
+\hyphenation{im-pre-se}
+
+%-------------WATERMARK TEST [**not part of a CV**]---------------
+\usepackage[absolute]{textpos}
+
+\setlength{\TPHorizModule}{30mm}
+\setlength{\TPVertModule}{\TPHorizModule}
+\textblockorigin{2mm}{0.65\paperheight}
+\setlength{\parindent}{0pt}
+
+%--------------------BEGIN DOCUMENT----------------------
+\begin{document}
+
+%WATERMARK TEST [**not part of a CV**]---------------
+%\font\wm=''Baskerville:color=787878'' at 8pt
+%\font\wmweb=''Baskerville:color=FF1493'' at 8pt
+%{\wm 
+%	\begin{textblock}{1}(0,0)
+%		\rotatebox{-90}{\parbox{500mm}{
+%			Typeset by Alessandro Plasmati with \XeTeX\  \today\ for 
+%			{\wmweb \href{http://www.aleplasmati.comuv.com}{aleplasmati.comuv.com}}
+%		}
+%	}
+%	\end{textblock}
+%}
+
+\pagestyle{empty} % non-numbered pages
+
+\font\fb=''[cmr10]'' %for use with \LaTeX command
+
+%--------------------TITLE-------------
+\par{\centering
+		{\Huge Sayandip \textsc{Sarkar}
+	}\bigskip\par}
+
+%--------------------SECTIONS-----------------------------------
+%Section: Personal Data
+\section{Personal Data}
+
+\begin{tabular}{ll}
+    \textsc{Place and Date of Birth:} & Howrah, West Bengal, India  | 27 September 1996 \\
+    \textsc{Address:}   & Sri Arabinda Road, Bakshi Bagan, Santragachhi, Howrah-711104,\\& West Bengal, India \\
+    \textsc{Phone:}     & +919778812009\\
+    \textsc{email:}     & \href{mailto:1405247@kiit.ac.in}{1405247@kiit.ac.in}
+\end{tabular}
+
+%Section: Work Experience at the top
+\section{Work Experience}
+\begin{tabular}{r|p{11cm}}
+ \emph{Current} & Undergraduate Research Assistant at \textsc{DREAM Lab}, CDS, IISC, Bengaluru \\\textsc{May 2017}&\emph{Storage of Temporal Property Graphs}\\&
+\small Advisor: Professor Yogesh \textsc{Simmhan}\\&
+\footnotesize{Working on a framework that stores temporal property graphs, with any schema whatsoever, as parquet files. The framework known by the acronym \textbf{HIPPO}(\textbf{H}ierarchy F\textbf{I}lter \textbf{P}roject \textbf{P}artition \textbf{O}rdering) provides a way to quickly convert any graph storage format to parquet files in order to run fast queries on them.}\\\multicolumn{2}{c}{} \\
+ \textsc{Dec-Feb 2017} & Undergraduate Research Intern at \textsc{CASL}, CSA, IISC, Bengaluru \\&\emph{Study of the Effects of Dynamic Voltage and Frequency Scaling on Distributed and Parallel Processing Systems}\\&\small Advisor: Professor K. \textsc{Gopinath}\\&\footnotesize{Performed an in depth study into the effects that various system level aspects such as Dynamic Voltage and Frequency Scaling, hyperthreading etc. have on the working of various distributed frameworks such as Hadoop. Results documented in a paper sent to HiPC, 2017.}\\\multicolumn{2}{c}{} \\
+\textsc{July-Dec 2016} & Research Assistant at \textsc{School of Computer Engineering, KIIT University}, Bhubaneshwar\\&\emph{Improving Area Coverage of Wireless Sensor Networks}\\&\small Advisor: Professor A. R. \textsc{Swain}\\&\footnotesize{Worked to improve the coverage area of wireless sensor networks by modeling them using Voronoi diagrams and successively merging adjacent diagrams to remove the redundant nodes, i.e make them inactive for the current duration. Implemented code for the same in Matlab.}
+\end{tabular}
+
+%Section: Education
+\section{Education}
+\begin{tabular}{ll}	
+ \textsc{June} 2018& Bachelor of Technology in \textsc{Computer Science and Engineering},\\\ (expected)&\textbf{KIIT University}, Bhubaneshwar\\&\normalsize \textsc{Gpa}: 8.23/10\small(major gpa till 6\textsuperscript{th} semester)\\&
+\\ \textsc{May} 2014& \textsc{Indian School Certificate(ISC)}, \normalsize\textbf{M. C. Keriwal Vidyapeeth}, Howrah\\
+&\normalsize \textsc{Percentage}: 93\%(Physics, Chemistry, Computer Science, Mathematics, \\&English)\\&
+\\ \textsc{May} 2012& \textsc{Indian Certificate for Secondary Education(ICSE)},\textbf{M. C. Kejriwal} \\&\textbf{Vidyapeeth}, Howrah\\&\normalsize \textsc{Percentage}: 94.8\%(Physics, Chemistry, Computer Application, Mathematics, \\&English)
+\end{tabular}
+
+%Section: Technical Skills
+\section{Technical Skills}
+\begin{tabular}{ll}
+\textsc{Strongest Areas} & \normalsize Distributed Systems, Graph Processing and Storage, Data \\
+&\normalsize Structures, Algorithms, Object Oriented Programming,\\ &\normalsize  Operating Systems, Linux administration, Security, \\& \normalsize Networking, High Performance Computer Architecture \\&
+\\\textsc{Programming Languages} & \normalsize C, Java, Python, Scala, Matlab, Bash, SQL\\&
+\\\textsc{Tools and Frameworks} & \normalsize Hadoop(HDFS, MapReduce, YARN), Spark, Parquet, GraphLab \\&\normalsize Create, Wireshark, GitHub, Subversion
+\end{tabular}
+%Section: Selected Projects
+\section{Selected Projects}
+\begin{tabular}{ll}
+\textsc{HIPPO} & \normalsize A \texttt{temporal property graph storage} framework written in \texttt{Spark}.\\&
+\\\textsc{MinesweeperServer} & \normalsize A \texttt{concurrent and threadsafe minesweeper server} written in \\& \normalsize \texttt{Java} that uses a self implemented board type as the internal \\&\normalsize representation.\\&
+\\\textsc{Expressivo} & \normalsize An \texttt{expression parser} written in \texttt{Java} that accepts a valid \\& \normalsize mathematical expression and then simplifies or differentiates \\&\normalsize it based on user input.\\&
+\\\textsc{CPU scheduler} & \normalsize A naive \textit{priority queue} based CPU scheduler implemented in \texttt{Java}.\\&
+\\\textsc{Disk Space} & \normalsize A naive implementation of the \textit{Unix du} command in \texttt{Java}.\\&
+\\\textsc{Card Hand} & \normalsize A program to simulate a card hand using \texttt{positional lists} in \texttt{Java}.\\&
+\\\textsc{Voronoi Merge} & \normalsize A program in \texttt{Matlab} to merge two Voronoi diagrams using a divide and conquer\\& \normalsize algorithm.
+\end{tabular}
+%Section: Languages
+\section{Languages}
+\begin{tabular}{ll}
+ \textsc{Bengali:}&Mothertongue\\
+\textsc{English:}&Fluent\\
+\textsc{Hindi:}&Fluent\\
+\end{tabular}
+
+\section{Interests and Activities}
+Literature(both fiction and non-fiction), Open-Source, Programming\\
+Paradoxes and thought experiments, Patterns in nature and human cognition\\
+Cricket, Tennis, Working out, Travelling
+
+
+\end{document}
